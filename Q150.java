@@ -1,17 +1,17 @@
 /*
 Enter the Number of Rows: 7
-         *  
-      *  *  *  
-   *  *  *  *  *
-*  *  *  *  *  *  *
-   *  *  *  *  *  
-      *  *  *
-         *
+         1  
+      1  2  3  
+   1  2  3  4  5  
+1  2  3  4  5  6  7  
+   1  2  3  4  5  
+      1  2  3  
+         1  
 */
 
 import java.util.Scanner;
 
-public class Q147 {
+public class Q150 {
     public static void printPattern(int n) {
         int space = n/2; int star = 1; int rowMid = n/2+1; 
         for(int i=1; i<=n; i++) {
@@ -19,7 +19,7 @@ public class Q147 {
                 System.out.printf("%-3s","");
             }
             for(int j=1; j<=star; j++) {
-                System.out.printf("%-3s","*");
+                System.out.printf("%-3d",j);
             }
 
             if(i<rowMid) {
