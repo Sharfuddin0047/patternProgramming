@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Q12 {
-     public static int reverse(int n, int rev) {
+    public static int reverse(int n, int rev) {
         if (n==0) {
             return rev;
         }
