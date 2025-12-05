@@ -53,11 +53,21 @@ class LinkedList {
         count++;
         head = newNode;
     }
+
+    //Design a method to get first node values
     public int getFirstVal(Node head) {
         if (head == null) {
             throw new IllegalStateException("List is empty, no first value.");
         }
         return head.val;
+    }
+
+    //Design a method to get last node values
+    public int getLastVal(Node tail) {
+        if (tail == null) {
+            throw new IllegalStateException("List is empty, no Last value.");
+        }
+        return tail.val;
     }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -78,6 +88,9 @@ class LinkedList {
         System.out.println("\nNode count: "+count);
 
         //get first node value
-        System.out.println(ll.getFirstVal(head));
+        System.out.println("First val: "+ll.getFirstVal(head));
+
+        //get last node value
+        System.out.println("Last val: "+ll.getLastVal(tail));
     }
 }
