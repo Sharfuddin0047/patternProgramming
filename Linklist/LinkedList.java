@@ -40,12 +40,34 @@ class LinkedList {
         }
         System.out.print("null");
     }
+
+    //Design a method to add node at the beginning of linkedList
+    public void addAtStart(int val) {
+        Node newNode = new Node(val);
+        if(head == null){
+            head = tail = newNode;
+            count++;
+            return;
+        }
+        newNode.next = head;
+        count++;
+        head = newNode;
+    }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
+        //function call add at end
         ll.addAtEnd(1);
         ll.addAtEnd(2);
         ll.addAtEnd(3);
 
+        //function call display
         ll.display(head);
+
+        //function call add at start
+        ll.addAtStart(4);
+        System.out.println();
+        ll.display(head);
+
+        System.out.println("\nNode count: "+count);
     }
 }
