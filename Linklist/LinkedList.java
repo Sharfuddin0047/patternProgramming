@@ -87,6 +87,20 @@ class LinkedList {
         }
         return temp.val;
     }
+
+    //Get node value at middle position
+    public int getMiddleVal(Node head) {
+        if(head == null) {
+            throw new IllegalStateException("List is empty.");
+        }
+        Node slow = head;
+        Node fast = head;
+        while(fast !=null && fast.next !=null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.val;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LinkedList ll = new LinkedList();
@@ -100,6 +114,7 @@ class LinkedList {
 
         //function call add at start
         ll.addAtStart(4);
+        ll.addAtStart(7);
         System.out.println();
         ll.display(head);
 
@@ -116,5 +131,8 @@ class LinkedList {
         System.out.println("Enter the nth node number starting from 0 to "+count);
         int n = sc.nextInt();
         System.out.println(n+" Node val:"+ll.getSpecificVal(head,n));
+
+        //Get middle node
+        System.out.println("Middle Node val:"+ll.getMiddleVal(head));
     }
 }
