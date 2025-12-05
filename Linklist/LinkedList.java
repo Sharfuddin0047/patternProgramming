@@ -53,6 +53,12 @@ class LinkedList {
         count++;
         head = newNode;
     }
+    public int getFirstVal(Node head) {
+        if (head == null) {
+            throw new IllegalStateException("List is empty, no first value.");
+        }
+        return head.val;
+    }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         //function call add at end
@@ -68,6 +74,10 @@ class LinkedList {
         System.out.println();
         ll.display(head);
 
+        //  Node count
         System.out.println("\nNode count: "+count);
+
+        //get first node value
+        System.out.println(ll.getFirstVal(head));
     }
 }
