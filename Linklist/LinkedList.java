@@ -101,6 +101,11 @@ class LinkedList {
         }
         return slow.val;
     }
+
+    //Design a method to check if linkedlist is empty
+    public boolean isEmpty(Node head) {
+        return head == null;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LinkedList ll = new LinkedList();
@@ -134,5 +139,8 @@ class LinkedList {
 
         //Get middle node
         System.out.println("Middle Node val:"+ll.getMiddleVal(head));
+
+        //check linkedlist is empty
+        System.out.println("Linkedlist isEmpty: "+ll.isEmpty(head));
     }
 }
