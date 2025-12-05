@@ -1,5 +1,7 @@
 package Linklist;
 
+import java.util.Scanner;
+
 class LinkedList {
     public static int count;
     public static Node head;
@@ -69,7 +71,24 @@ class LinkedList {
         }
         return tail.val;
     }
+
+    //Get node value at specific position
+    public int getSpecificVal(Node head, int n) {
+        if (n < 1 || n > count) {
+            throw new IndexOutOfBoundsException("Index " + n + " is out of bounds. Valid range: 1 to " + count);
+        }
+
+        if (head == null) {
+            throw new IllegalStateException("List is empty.");
+        }
+        Node temp = head;
+        for(int i=1; i<n; i++) {
+            temp = temp.next;
+        }
+        return temp.val;
+    }
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         LinkedList ll = new LinkedList();
         //function call add at end
         ll.addAtEnd(1);
@@ -92,5 +111,10 @@ class LinkedList {
 
         //get last node value
         System.out.println("Last val: "+ll.getLastVal(tail));
+
+        //get specific node val
+        System.out.println("Enter the nth node number starting from 0 to "+count);
+        int n = sc.nextInt();
+        System.out.println(n+" Node val:"+ll.getSpecificVal(head,n));
     }
 }
