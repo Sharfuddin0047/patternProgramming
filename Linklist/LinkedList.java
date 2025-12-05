@@ -106,6 +106,11 @@ class LinkedList {
     public boolean isEmpty(Node head) {
         return head == null;
     }
+
+    //Design a method to clear the linkedList
+    public void clear() {
+        LinkedList.head = null;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LinkedList ll = new LinkedList();
@@ -142,5 +147,9 @@ class LinkedList {
 
         //check linkedlist is empty
         System.out.println("Linkedlist isEmpty: "+ll.isEmpty(head));
+
+        //clear
+        ll.clear();
+        ll.display(head);
     }
 }
