@@ -141,6 +141,26 @@ class LinkedList {
         tail = temp;
         return tail;
     }
+
+    // Design a method to remove middle node
+    public Node removeMiddNode(Node head) {
+        if(head == null) {
+            throw new IllegalStateException("List is empty.");
+        }
+        if(head.next == null) {
+            return null;
+        }
+        Node prev = null;
+        Node slow = head;
+        Node fast = head;
+        while(fast !=null && fast.next !=null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        prev.next = prev.next.next;
+        return head;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LinkedList ll = new LinkedList();
@@ -191,5 +211,14 @@ class LinkedList {
 
         //Remove last node
         System.out.println("last node is: "+ll.removeLastNode(head).val);
+
+        //Remove middle node
+        ll.display(head);
+        System.out.println();
+        System.out.println("Middle Node val:"+ll.getMiddleVal(head));
+        ll.display(ll.removeMiddNode(head));
+
+
+        sc.close();
     }
 }
