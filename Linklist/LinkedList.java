@@ -110,6 +110,7 @@ class LinkedList {
     //Design a method to clear the linkedList
     public void clear() {
         LinkedList.head = null;
+        count = 0;
     }
 
     //Design a method to remove first node
@@ -117,7 +118,28 @@ class LinkedList {
         if(head == null) {
             throw new IllegalStateException("List is empty");
         }
+        count--;
         return head.next;
+    }
+
+    //Design a method to remove last node
+    public Node removeLastNode(Node head) {
+        Node temp = head;
+        if(head == null) {
+            throw new IllegalStateException("List is empty");
+        }
+        if(head.next == null) {
+            head = tail = null;
+            count--;
+            return tail;
+        }
+        while(temp.next.next !=null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+        count--;
+        tail = temp;
+        return tail;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -166,5 +188,8 @@ class LinkedList {
 
         //To remove first node
         System.out.println(ll.removeFirstNode(head).val);
+
+        //Remove last node
+        System.out.println("last node is: "+ll.removeLastNode(head).val);
     }
 }
