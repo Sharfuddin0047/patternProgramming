@@ -148,6 +148,7 @@ class LinkedList {
             throw new IllegalStateException("List is empty.");
         }
         if(head.next == null) {
+            count--;
             return null;
         }
         Node prev = null;
@@ -158,7 +159,38 @@ class LinkedList {
             slow = slow.next;
             fast = fast.next.next;
         }
+        count--;
         prev.next = prev.next.next;
+        return head;
+    }
+
+    //Design a method to remove node at a specific index
+    public Node removSpecificNode(Node head,int n) {
+        if(n<1 || n>count) {
+            throw new IllegalStateException("Invalid index value.Enter n between 1 to "+count);
+        }
+        if(head == null) {
+            throw new IllegalStateException("List is empty.");
+        }
+        if(n == 1) {
+            count--;
+            head = head.next;
+            return head;
+        }
+        int i = 1;
+        Node temp = head;
+        while(i<n-1) {
+            temp = temp.next;
+            i++;
+        }
+        if(n == count) {
+            temp.next = null;
+            count--;
+            tail = temp;
+            return head;
+        }
+        temp.next = temp.next.next;
+        count--;
         return head;
     }
     public static void main(String[] args) {
@@ -217,6 +249,11 @@ class LinkedList {
         System.out.println();
         System.out.println("Middle Node val:"+ll.getMiddleVal(head));
         ll.display(ll.removeMiddNode(head));
+
+
+        //Remove specific index node
+        System.out.println();
+        ll.display(ll.removSpecificNode(head, 1));
 
 
         sc.close();
