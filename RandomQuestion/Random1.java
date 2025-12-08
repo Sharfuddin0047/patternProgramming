@@ -2,19 +2,16 @@ package RandomQuestion;
 
 /**
 Enter the value of n:
-4
-    *
-   * *
-  * * *
- * * * *
+3
+      *   
+    *   *   
+  *   *   *   
 
 
-
- eeeeeee
-   @ @
-   @ @
-   @ @
-   @ @
+  e e e e e 
+    @   @ 
+    @   @ 
+    @   @ 
  */
 import java.util.Scanner;
 
