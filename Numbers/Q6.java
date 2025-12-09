@@ -44,5 +44,6 @@ public class Q6 {
         System.out.println("Enter the end value: ");
         int end = sc.nextInt();
         printPrime(start, end);
+        sc.close();
     }
 }
