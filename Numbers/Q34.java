@@ -3,29 +3,10 @@ import java.util.Scanner;
 public class Q34 {
     public static String toHex(int n) {
         String hex = "";
+        char[] map = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
 
         while(n>0) {
-            if(n%16 == 10) {
-                hex = 'a'+hex;
-            }
-            else if(n%16 == 11) {
-                hex = 'b'+hex;
-            }
-            else if(n%16 == 12) {
-                hex = 'c'+hex;
-            }
-            else if(n%16 == 13) {
-                hex = 'd'+hex;
-            }
-            else if(n%16 == 14) {
-                hex = 'e'+hex;
-            }
-            else if(n%16 == 15) {
-                hex = 'f'+hex;
-            }
-            else {
-                hex = n%16+hex;
-            }
+            hex = map[n%16]+hex;
             n/=16;
         }
         return hex;
