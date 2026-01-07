@@ -7,14 +7,13 @@ public class Q6 {
     public static void main(String[] args) {
         int[] arr={2,5,4,3,6};
         int[] rarr = new int[arr.length];
+        int sum = 0;
+        for(int x: arr) {
+            sum += x;
+        }
+
         for(int i=0; i<arr.length; i++) {
-            int sum = 0;
-            for(int j=0; j<arr.length; j++) {
-                if(i!=j) {
-                    sum = sum + arr[j];
-                }
-            }
-            rarr[i] = sum;
+            rarr[i] = sum-arr[i];
         }
         for(int x: rarr) {
             System.out.print(x+" ");
