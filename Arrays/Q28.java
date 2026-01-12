@@ -6,6 +6,8 @@ i/p: [7, 4,3, 0, 5, 1, 6]
 o/p: 2
 */
 
+/*https://leetcode.com/problems/missing-number/ */
+
 import java.util.Arrays;
 
 public class Q28 {
