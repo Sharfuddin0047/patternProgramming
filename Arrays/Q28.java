@@ -9,16 +9,16 @@ o/p: 2
 import java.util.Arrays;
 
 public class Q28 {
-    public static int findMissing(int[] arr) {
-        Arrays.sort(arr);
-        int i=0;
-        while(i == arr[i]) {
-            i++;
+    public static int findMissing(int[] arr, int n) {
+        int sum = n*(n+1)/2;
+        for(int i=0; i<arr.length; i++) {
+            sum = sum-arr[i];
         }
-        return i;
+        return sum;
     }
     public static void main(String[] args) {
         int[] arr = {7, 4,3, 0, 5, 1, 6};
-        System.out.println("Missing value: "+findMissing(arr));
+        int n =7;
+        System.out.println("Missing value: "+findMissing(arr,n));
     }
 }
