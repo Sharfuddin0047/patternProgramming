@@ -1,0 +1,33 @@
+/*WAJP to count all prime numbers up to n. */
+
+public class Q41 {
+    public static int countPrime(int n) {
+        int count=0;
+        if(n<=1) {
+            return 0;
+        }
+        for(int i=2; i<n; i++) {
+            if(isPrime(i)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public static boolean isPrime(int n) {
+        if(n<=1) {
+            return false;
+        }
+        if(n == 2) {
+            return true;
+        }
+        for(int i=2; i*i<=n; i++) {
+            if(n%i==0) {
+                return false;
+            }
+        }
+        return true;
+     }
+    public static void main(String[] args) {
+        
+    }
+}
