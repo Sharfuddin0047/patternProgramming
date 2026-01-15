@@ -9,16 +9,20 @@ import java.util.Arrays;
 
 public class Q45 {
     public static int getSecondMax(int[] a) {
-        Arrays.sort(a);
-        int first=a[0], second=Integer.MIN_VALUE;
-        if(a.length<2) {
-            return a[0];
-        }
-        for(int i=1; i<a.length; i++) {
-            if(a[i]>first) {
+        int first = Integer.MIN_VALUE;
+        int second = Integer.MIN_VALUE;
+
+        for(int x: a) {
+            if(x>first) {
                 second = first;
-                first = a[i];
+                first = x;
+            } else if (x>second && x<first) {
+                second = x;
             }
+        }
+
+        if(second == Integer.MIN_VALUE) {
+            return -1;
         }
         return second;
     }
