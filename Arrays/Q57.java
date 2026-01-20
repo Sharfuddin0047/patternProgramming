@@ -2,7 +2,8 @@
 has appeared only once in the array. Given that
 only one element has appeared once in the
 array. */
-public class Q57 {public static void uniqueElement(int[] nums) {
+public class Q57 {
+    public static void uniqueElement(int[] nums) {
         int min=nums[0];
         int max=nums[0];
 
