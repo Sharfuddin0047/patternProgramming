@@ -10,28 +10,24 @@ Input: [3, 3, 4, 2, 4, 4, 2, 4, 4]
 Output: 4
 Example 3:
 Input: [1, 2, 3, 4, 5]
-Output: -1 */
+Output: -1
+
+https://leetcode.com/problems/majority-element/
+
+*/
+
+import java.util.HashMap;
 
 public class Q66 {
      public static int majorityElement(int[] nums) {
-        int min=nums[0];
-        int max=nums[0];
-
+        HashMap<Integer, Integer> h1 = new HashMap<>();
         for(int x:nums) {
-            if(x>max)
-                max=x;
-            else if(x<min)
-                min=x;
+            h1.put(x,h1.getOrDefault(x,0)+1);
         }
 
-        int[] freq=new int[max-min+1];
-        for(int x:nums) {
-            freq[x-min]++;
-        }
-
-        for(int i=0; i<freq.length; i++) {
-            if(freq[i]>nums.length/2) {
-                return i+min;
+        for(Integer key:h1.keySet()) {
+            if(h1.get(key)>nums.length/2) {
+                return key;
             }
         }
         return -1;
