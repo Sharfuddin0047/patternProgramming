@@ -1,31 +1,20 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Q72 {
     public static List<Integer> lonelyNumber(int[] nums) {
-        int min=nums[0];
-        int max=nums[0];
-
+        HashMap<Integer,Integer> h1 = new HashMap<>();
+        ArrayList<Integer> a1 = new ArrayList<>();
         for(int x:nums) {
-            if(x>max)
-                max=x;
-            else if(x<min)
-                min=x;
+            h1.put(x, h1.getOrDefault(x, 0)+1);
         }
-
-        int[] freq=new int[max-min+1];
-        for(int x:nums) {
-            freq[x-min]++;
-        }
-        ArrayList<Integer> newFreq=new ArrayList<>();
-        for(int i=0; i<freq.length; i++) {
-            int mi=i-1;
-            int ma=i+1;
-            if(freq[i]==1 && (mi<0 || freq[mi]==0) && (ma==freq.length || freq[ma]==0)) {
-                newFreq.add(i+min);
+        for(int x:h1.keySet()) {
+            if(h1.get(x)==1 && !h1.containsKey(x-1) && !h1.containsKey(x+1)) {
+                a1.add(x);
             }
         }
-        return newFreq;
+        return a1;
     }
     public static void main(String[] args) {
         int[] nums ={10,6,5,8};
