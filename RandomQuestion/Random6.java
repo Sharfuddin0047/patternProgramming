@@ -14,7 +14,7 @@ public class Random6 {
             char ch = str.charAt(i);
             if(ch=='(' || ch=='{' || ch=='[') {
                 s1.push(ch);
-            } else if(s1.isEmpty() && (ch==')' || ch=='}' || ch==']')) {
+            } else if(s1.isEmpty()) {
                 return false;
             } else if((s1.peek()=='(' && ch==')') || (s1.peek()=='{' && ch=='}') || (s1.peek()=='[' && ch==']')) {
                 s1.pop();
