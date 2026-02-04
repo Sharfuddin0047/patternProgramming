@@ -1,6 +1,8 @@
 /*WAJP to sort the array elements in ascending
 order by implementing Merge sort algorithm */
 
+import java.util.Arrays;
+
 public class Q90 {
     public static void mergeSort(int[] nums, int start, int end) {
         if (start < end) {
@@ -36,6 +38,12 @@ public class Q90 {
     }
 
     public static void main(String[] args) {
+         int[] nums = {5, 2, 9, 1, 5, 6};
+        System.out.println("Original array: " + Arrays.toString(nums));
+
+        mergeSort(nums, 0, nums.length - 1);
+
+        System.out.println("Sorted array: " + Arrays.toString(nums));
 
     }
 }
