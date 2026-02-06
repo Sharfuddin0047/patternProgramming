@@ -38,7 +38,7 @@ public class Q90 {
     }
 
     public static void main(String[] args) {
-         int[] nums = {5, 2, 9, 1, 5, 6};
+        int[] nums = {5, 2, 9, 1, 5, 6};
         System.out.println("Original array: " + Arrays.toString(nums));
 
         mergeSort(nums, 0, nums.length - 1);
